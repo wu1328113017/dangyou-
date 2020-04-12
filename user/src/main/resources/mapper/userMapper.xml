@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dangyou.mapper.UserMapper">
+    <insert id="insert" parameterType="com.dangyou.entity.User">
+        <selectKey keyProperty="id" resultType="string" order="BEFORE">
+            select replace(uuid(), '-', '') as id from dual
+        </selectKey>
+        insert into user(id,username,password,salt,phone,create_time,update_time)
+        values(#{id},#{username},#{password},#{salt},#{phone},#{createTime},#{updateTime})
+    </insert>
+    <delete id="delete" parameterType="String">
+        delete from user where id = #{id}
+    </delete>
+    <select id="selectById" parameterType="String" resultType="com.dangyou.entity.User">
+        select * from user where id = #{id}
+    </select>
+    <update id="updateById" parameterType="com.dangyou.entity.User">
+        update user set username=#{username},password=#{password},salt=#{salt},phone=#{phone},
+        create_time=#{createTime},update_time=#{updateTime} where id=#{id}
+    </update>
+    <select id="selectLength" parameterType="com.dangyou.entity.User" resultType="Integer">
+        select count(0) from user
+        <where>
+            <if test="id != '' and id != null">
+                and id = #{id}
+            </if>
+            <if test="username != '' and username != null">
+                and username = #{username}
+            </if>
+            <if test="password != '' and password != null">
+                and password = #{password}
+            </if>
+            <if test="phone != '' and phone != null">
+                and phone = #{phone}
+            </if>
+        </where>
+    </select>
+</mapper>

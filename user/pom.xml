@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--模块版本号-->
+    <modelVersion>4.0.0</modelVersion>
+<!--当前项目名称-->
+    <groupId>com.dangyou</groupId>
+    <artifactId>user</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!--打包方式 jar war pom-->
+    <packaging>jar</packaging>
+    <!--Spring boot 父级依赖-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+    </parent>
+<dependencies>
+<!--spring boot 核心启动类-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <!--导入数据库连接包 -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    <!--springboot 配置处理器-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <version>2.1.7.RELEASE</version>
+    </dependency>
+    <!--mybatis-->
+    <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>3.5.3</version>
+    </dependency>
+    <!--spring整合mybatis-->
+    <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>2.1.0</version>
+    </dependency>
+    <!--alibaba数据库连接池-->
+    <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>1.1.20</version>
+    </dependency>
+</dependencies>
+
+</project>

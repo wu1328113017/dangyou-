@@ -1,0 +1,15 @@
+server:
+  port: 9999
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName:  com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dangyou?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    username: root
+    password: 123
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: com.dangyou.entity
